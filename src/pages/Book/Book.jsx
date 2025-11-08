@@ -1,6 +1,10 @@
-import React, { use } from "react";
+import React from "react";
 import { FaStarHalfAlt } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+
+// import { Link } from "react-router";
+
+
 
 const Book = ({ singleBook }) => {
   //   const data = use(bookPromise);
@@ -17,8 +21,8 @@ const Book = ({ singleBook }) => {
         </figure>
         <div className="card-body">
           <div className="flex gap-10 justify-center">
-            {tags.map((tag) => (
-              <button>{tag}</button>
+            {tags.map((tag,index) => (
+              <button key={index}>{tag}</button>
             ))}
           </div>
           <h2 className="card-title">
