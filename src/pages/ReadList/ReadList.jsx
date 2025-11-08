@@ -9,6 +9,8 @@ import Book from "../Book/Book";
 const ReadList = () => {
   const [readList, setReadList] = useState([]);
   const [WishList, setWishList] = useState([]);
+  const [sort, setSort] = useState("");
+
   const data = useLoaderData();
 
   useEffect(() => {
@@ -29,8 +31,35 @@ const ReadList = () => {
     );
     setWishList(myWishList);
   }, []);
+
+  const handleSort = (type) => {
+    setSort(type);
+    if (type === "Pages") {
+      const sortedByPage = [...readList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
+      setReadList(sortedByPage);
+    }
+    if(type === "Ratings"){
+        const sortedByRatings = [...readList].sort(
+        (a, b) => a.rating - b.rating
+      );
+      setReadList(sortedByRatings);
+    }
+  };
   return (
     <div>
+      <details className="dropdown flex justify-center items-center my-4">
+        <summary className="btn m-1">Sort By : {sort ? sort : ""}</summary>
+        <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <li>
+            <a onClick={() => handleSort("Pages")}>Pages</a>
+          </li>
+          <li>
+            <a onClick={() => handleSort("Ratings")}>Ratings</a>
+          </li>
+        </ul>
+      </details>
       <Tabs>
         <TabList>
           <Tab>Read Book List</Tab>
