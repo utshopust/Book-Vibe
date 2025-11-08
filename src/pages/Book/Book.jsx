@@ -1,4 +1,5 @@
 import React, { use } from "react";
+import { FaStarHalfAlt } from "react-icons/fa";
 
 const Book = ({ singleBook }) => {
   //   const data = use(bookPromise);
@@ -6,9 +7,10 @@ const Book = ({ singleBook }) => {
 
   console.log(singleBook);
   return (
-    <div className="card bg-base-100 w-96 shadow-sm">
-      <figure className="p-3">
+    <div className="card bg-base-100 w-96 shadow-sm border p-6">
+      <figure className="p-4 bg-gray-100 w-2/3 mx-auto ">
         <img
+        className="h-[166px]"
           src={singleBook.image}
           alt="Book"
         />
@@ -19,11 +21,11 @@ const Book = ({ singleBook }) => {
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>
-          {singleBook.review}
+          {singleBook.author}
         </p>
         <div className="card-actions justify-end">
-          <div className="badge badge-outline">Fashion</div>
-          <div className="badge badge-outline">Products</div>
+          <div className="badge badge-outline">{singleBook.category}</div>
+          <div className="badge badge-outline">{singleBook.rating} <FaStarHalfAlt /></div>
         </div>
       </div>
     </div>
