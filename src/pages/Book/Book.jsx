@@ -15,7 +15,7 @@ const Book = ({ singleBook }) => {
   console.log(singleBook);
   return (
     <Link to={`/bookDetails/${bookId}`}>
-      <div className="card bg-base-100 w-96 shadow border p-6 ">
+      <div className="card bg-base-100 w-96 shadow border p-6 h-full">
         <figure className="p-4 bg-gray-100 w-2/3 mx-auto ">
           <img className="h-[166px]" src={singleBook.image} alt="Book" />
         </figure>
@@ -25,15 +25,15 @@ const Book = ({ singleBook }) => {
               <button key={index}>{tag}</button>
             ))}
           </div>
-          <h2 className="card-title">
+          <h2 className="card-title flex flex-col">
             {singleBook.bookName}
-            <div className="badge badge-secondary">{yearOfPublishing}</div>
+            <div className="badge badge-secondary ">Published-{yearOfPublishing}</div>
           </h2>
-          <p>Book By : {singleBook.author}</p>
+          <p className="text-center">Book By : {singleBook.author}</p>
 
           <div className="border border-dashed"></div>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">{singleBook.category}</div>
+            <div className="badge badge-outline ">{singleBook.category}</div>
             <div className="badge badge-outline">
               {singleBook.rating} <FaStarHalfAlt />
             </div>

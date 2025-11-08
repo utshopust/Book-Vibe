@@ -3,11 +3,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const links = <>
-    <Link to='/'><li className="m-2">Home</li></Link>
-    <Link to='/about'><li className="m-2">About</li></Link>
-    
+  const links = (
+    <>
+      <Link to="/">
+        <li className="m-2">Home</li>
+      </Link>
+      <Link to="/about">
+        <li className="m-2">About</li>
+      </Link>
+      <Link to="/readList">
+        <li className="m-2">ReadList</li>
+      </Link>
     </>
+  );
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -36,12 +44,12 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Book Vibe</a>
+        <Link to="/" className="btn btn-ghost text-xl">
+          Book Vibe
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>
